@@ -13,7 +13,7 @@ Can be done by taking the sequences files and spliting on Ms -- Create a files o
 2. Use Bedfile and human fasta file to create a fasta file of every human transcript
   - https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html
 3. Merge all exons per transcripid -- leaving out one exon at a time.  Ie missing 1, 2, 3, etc
-4. Translate DNA to protein
+4. Translate DNA to protein ?R package?
 
 * Align all species' sequences against human genome using BlastX
 * Explore
