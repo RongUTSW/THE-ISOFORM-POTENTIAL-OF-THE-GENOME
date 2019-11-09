@@ -2,8 +2,8 @@
 ## Find Alternative Starts
 ### Gervaise Henry
 
-Search the human protein sequences for Ms
-Can be done by taking the sequences files and spliting on Ms -- Create a files of the location of each M in each protein sequence
+1. Search the human protein sequences for Ms
+2. Can be done by taking the sequences files and spliting on Ms -- Create a files of the location of each M in each protein sequence
 ### Not sure how to filter this
 
 # Project 2
