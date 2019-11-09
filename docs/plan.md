@@ -4,7 +4,8 @@
 
 1. Search the human protein sequences for Ms
 2. Can be done by taking the sequences files and spliting on Ms -- Create a files of the location of each M in each protein sequence
-### Not sure how to filter this
+ - filter on 50aa
+ - filter no Ms
 
 # Project 2
 ## Alternative splicing
@@ -13,7 +14,7 @@
 2. Use Bedfile and human fasta file to create a fasta file of every human transcript
   - https://bedtools.readthedocs.io/en/latest/content/tools/getfasta.html
 3. Merge all exons per transcripid -- leaving out one exon at a time.  Ie missing 1, 2, 3, etc
-4. Translate DNA to protein ?R package?
+4. Translate DNA to protein using R package (biostrings)
 
 ### Zahin Islam 
 1. Pass through all species' fasta sequences into Blast for nucleotide alignment 
