@@ -17,7 +17,7 @@
 
 # Project 3
 ## Transcript conservation accross species
-###Reed
+### Reed
 1. Run BLASTX: various organism protein sequence against human genome
 2. Parse BLASTX for alignments
 3. Compare alignments to human genome against CDS sequences in GTF -- extract alignments not overlapping CDS
