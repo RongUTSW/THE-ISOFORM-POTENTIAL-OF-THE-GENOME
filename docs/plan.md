@@ -15,11 +15,9 @@ Can be done by taking the sequences files and spliting on Ms -- Create a files o
 3. Merge all exons per transcripid -- leaving out one exon at a time.  Ie missing 1, 2, 3, etc
 4. Translate DNA to protein ?R package?
 
-* Align all species' sequences against human genome using BlastX
-* Explore
-* Look for Kozac
-* Rank
-
-
 # Project 3
 ## Transcript conservation accross species
+
+1. Run BLASTX: various organism protein sequence against human genome
+2. Parse BLASTX for alignments
+3. Compare alignments to human genome against CDS sequences in GTF -- extract alignments not overlapping CDS
