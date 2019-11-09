@@ -15,6 +15,11 @@
 3. Merge all exons per transcripid -- leaving out one exon at a time.  Ie missing 1, 2, 3, etc
 4. Translate DNA to protein ?R package?
 
+### Zahin Islam 
+1. Pass through all species' fasta sequences into Blast for nucleotide alignment 
+* All data files copied into new folder "blastfasta" 
+* All files will be unzipped from .gz to .fasta since errors occured when running alignment 
+
 # Project 3
 ## Transcript conservation accross species
 ### Reed
