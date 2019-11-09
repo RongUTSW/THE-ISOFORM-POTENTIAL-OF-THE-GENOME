@@ -17,7 +17,7 @@ Can be done by taking the sequences files and spliting on Ms -- Create a files o
 
 # Project 3
 ## Transcript conservation accross species
-
+###Reed
 1. Run BLASTX: various organism protein sequence against human genome
 2. Parse BLASTX for alignments
 3. Compare alignments to human genome against CDS sequences in GTF -- extract alignments not overlapping CDS
