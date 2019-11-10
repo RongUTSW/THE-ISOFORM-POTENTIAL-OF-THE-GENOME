@@ -464,3 +464,58 @@ ggplot(na.omit(selected.M.location), aes(x=length.group, y=Ms.count, fill=specie
   geom_boxplot() + labs(x = "\n Protein Length Groups\n", y="\n Number of Ms", title="     \n                                 ") + 
   facet_wrap(~species, scale="free")
 
+min(all.species.M.location.comb$Ms.count, na.rm = T) # [1] 1
+sapply(unique(all.species.M.location.comb$name))
+
+## ------------------------
+tmp <- all.species.M.location.comb
+table(tmp$location==1)
+#   FALSE    TRUE 
+# 4606606  396546
+tmp <- tmp[-which(tmp$location==1),]
+dim(tmp) # [1] 4606606       7
+
+tmp.unique <- unique(tmp[,c(1,2,4:6)])
+dim(tmp.unique) # [1] 426047      5
+# min.location <- apply(tmp.unique, 1, function(x){
+#   sub.data <- tmp[which(tmp[,1]==x[1] &
+#                           tmp[,2]==x[2] &
+#                           tmp[,4]==x[3] &
+#                           tmp[,5]==x[4] &
+#                           tmp[,6]==x[5]),]
+#   return(min(sub.data$location, na.rm = T))
+# })
+tmp.test <- tmp[order(tmp[,2], tmp[,1], tmp[,4,], tmp[,5],tmp[,6], tmp[,3]),]
+head(tmp.test)
+tmp.test[1:10,]
+#                 name species location length Ms.count Ms.count.normalized.by.length normalized.location
+# 3  ENSP00000000233.5   human       18    180        6                    0.03333333           0.1000000
+# 1  ENSP00000000233.5   human       22    180        6                    0.03333333           0.1222222
+# 4  ENSP00000000233.5   human      110    180        6                    0.03333333           0.6111111
+# 5  ENSP00000000233.5   human      130    180        6                    0.03333333           0.7222222
+# 6  ENSP00000000233.5   human      134    180        6                    0.03333333           0.7444444
+# 9  ENSP00000000412.3   human      119    277        6                    0.02166065           0.4296029
+# 10 ENSP00000000412.3   human      142    277        6                    0.02166065           0.5126354
+# 7  ENSP00000000412.3   human      173    277        6                    0.02166065           0.6245487
+# 11 ENSP00000000412.3   human      220    277        6                    0.02166065           0.7942238
+# 12 ENSP00000000412.3   human      277    277        6                    0.02166065           1.0000000
+min.location <- tmp.test[!duplicated(tmp[,c(1:2,4:6)]),]
+head(min.location)
+#                 name species location length Ms.count Ms.count.normalized.by.length normalized.location
+# 3  ENSP00000000233.5   human       18    180        6                    0.03333333          0.10000000
+# 9  ENSP00000000412.3   human      119    277        6                    0.02166065          0.42960289
+# 18 ENSP00000000442.6   human      144    423        9                    0.02127660          0.34042553
+# 23 ENSP00000001008.4   human        6    459       11                    0.02396514          0.01307190
+# 33 ENSP00000001146.2   human       54    512       11                    0.02148438          0.10546875
+# 52 ENSP00000002125.4   human       43    441       12                    0.02721088          0.09750567
+dim(min.location) # [1] 426047      6
+min.location$normalized.location <- min.location$location/min.location$length
+dim(min.location) # [1] 426047      7
+save(min.location, file="min_location_r426047c7.RData")
+
+library(ggplot2)
+ggplot(min.location) + geom_freqpoly(binwidth = 0.01, aes(x = normalized.location,
+                                                                         y = ..density.., colour = species, linetype=species))  + 
+  labs(x = "Normalized Location of the 2nd M\n", title="     \n                                               Location of the 2nd M after Normalized by Protein Length        ") ## + geom_vline(xintercept = 0.04,linetype="dotted")
+
+
